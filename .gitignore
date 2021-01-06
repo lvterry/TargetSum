@@ -298,4 +298,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# CocoaPods
+/ios/Pods/
+
 # End of https://www.toptal.com/developers/gitignore/api/reactnative
