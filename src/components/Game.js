@@ -54,7 +54,9 @@ class Game extends React.Component {
     return (
       <>
         <View style={styles.container}>
-          <Text style={styles.target}>{this.target}</Text>
+          <Text style={[styles.target, styles[`status${gameStatus}`]]}>
+            {this.target}
+          </Text>
           <View style={styles.randomContainer}>
             {this.numbers.map((n, i) =>
               <RandomNumber
@@ -92,6 +94,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-around'
+  },
+  statusWON: {
+    backgroundColor: '#73d13d'
+  },
+  statusLOST: {
+    backgroundColor: '#ff4d4f'
   }
 });
 
