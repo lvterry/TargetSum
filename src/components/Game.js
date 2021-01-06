@@ -34,7 +34,23 @@ class Game extends React.Component {
     })
   };
 
+  gameStatus = () => {
+    const sumSelected = this.state.selectedIndex.reduce((acc, curr) => {
+      return acc + this.numbers[curr];
+    }, 0);
+    if (sumSelected < this.target) {
+      return 'PLAYING';
+    }
+    if (sumSelected === this.target) {
+      return 'WON';
+    }
+    if (sumSelected > this.target) {
+      return 'LOST';
+    }
+  }
+
   render() {
+    const gameStatus = this.gameStatus();
     return (
       <>
         <View style={styles.container}>
@@ -49,6 +65,7 @@ class Game extends React.Component {
                 onPress={ this.selectNumber } />
             )}
           </View>
+          <Text>{ gameStatus }</Text>
         </View>
       </>
     );
