@@ -8,10 +8,22 @@
 import React from 'react';
 import Game from './src/components/Game';
 
-const App: () => React$Node = () => {
-  return (
-    <Game numberCount="6" />
-  );
-};
+class App extends React.Component {
+  state = {
+    gameId: 1
+  },
+
+  resetGame = () {
+    this.setState((prevState) => {
+      return {
+        gameId: prevState.gameId + 1
+      }
+    });
+  }
+
+  render() {
+    return <Game onPlayAgain="" numberCount="6" initialSeconds={10} />;
+  }
+}
 
 export default App;
